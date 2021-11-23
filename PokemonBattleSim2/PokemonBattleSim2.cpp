@@ -28,9 +28,17 @@ public:
     }
     int useMove()//using a move reeduces the current power points by 1 and generates an attack value;
     {
-        currentPowerPoints -= 1;
-        int damage = (5 + rand() % attackValue); //the attack value is a random number between 5 and the top value for attack
-        return damage;
+        if (currentPowerPoints <= 0)
+        {
+            cout << "No PP left!" << endl;
+            return 0;
+        }
+        else
+        {
+            currentPowerPoints -= 1;
+            int damage = (5 + rand() % attackValue); //the attack value is a random number between 5 and the top value for attack
+            return damage;
+        }        
     }
 
     string getName()

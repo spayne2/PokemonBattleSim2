@@ -5,7 +5,7 @@ using namespace std;
 const int NUMBER_POKEMON = 6;
 const int NUMBER_OF_MOVES = 4;
 enum class Type { Fire, Water, Grass, Normal }; // Use enum for types. This makes the code easier, and we don't need string comparissons.
-class Move
+class Move //Move class: responsible for a Move that a pokemon can use in battle
 {
 private:
     string name; //the name of the move
@@ -13,8 +13,8 @@ private:
     int totalPowerPoints; //the total ammount of times the move can be used;
     int currentPowerPoints; //the ammounf of moves left
     Type type;
-public:
-    Move() 
+public: 
+    Move()
     {
         name = "";
         attackValue = currentPowerPoints = totalPowerPoints = 0;
@@ -38,22 +38,22 @@ public:
             currentPowerPoints -= 1;
             int damage = (5 + rand() % attackValue); //the attack value is a random number between 5 and the top value for attack
             return damage;
-        }        
+        }
     }
 
-    string getName()
+    string getName() //return the name of the move
     {
         return name;
     }
-    Type getType()
+    Type getType() //return the type of the move
     {
         return type;
     }
-    string getPPremainng()
+    string getPPremainng() //return a string the says how much PP is remaining from the total PP
     {
         return to_string(currentPowerPoints) + "/" + to_string(totalPowerPoints) + " PP remaing";
     }
-   
+
 };
 class Pokemon
 {
@@ -84,14 +84,14 @@ public:
         maxHealth = mh;
         type = t;
         knockedOut = false;
-        for (int i = 0; i < NUMBER_OF_MOVES; i++)
+        for (int i = 0; i < NUMBER_OF_MOVES; i++) //copy the array being passed in to the array in the class
         {
             moves[i] = m[i];
         }
 
         srand(time(NULL));
     }
-    string getType()
+    string getType() //return the pokemon type as a string for display to user
     {
         if (type == Type::Fire)
         {
@@ -112,9 +112,8 @@ public:
         cout << "This level " << level << " " << name << " has " << health << " hp remaining , they are a " << getType() << " type pokemon" << endl << endl;
     }
 
-    void revive()
+    void revive()//Reviving a pokemon will set knockedOut to false
     {
-        //Reviving a pokemon will set knockedOut to false
         knockedOut = false;
         if (health <= 0) { //safety check, if the pokemon has somehow been revived but the health is still 0 or less then set it to 1.
             health = 1;
@@ -122,18 +121,17 @@ public:
         cout << name << " was revived!" << endl;
     }
 
-    void knockOut()
+    void knockOut()//Knocking out a pokemon change knockedOut to true
     {
-        //Knocking out a pokemon change knockedOut to true
         knockedOut = true;
         //A knocked out pokemon can't have any health.
         health = 0;
         cout << name << " was knocked out!" << endl;
     }
 
-    void loseHealth(int amount)
+    void loseHealth(int amount) //Deducts heath from a pokemon and prints the current health reamining
     {
-        //Deducts heath from a pokemon and prints the current health reamining
+
         health -= amount;
         if (health <= 0)
         {// Makes sure the health doesn't become negative. Knocks out the pokemon.
@@ -146,8 +144,8 @@ public:
         }
     }
 
-    void gainHealth(int amount)
-    {//Adds to a pokemon's health
+    void gainHealth(int amount)//Adds to a pokemon's health
+    {
         //If a pokemon goes from 0 heath, then revive it
         if (health == 0)
         {
@@ -162,26 +160,27 @@ public:
         cout << name << " now has " << health << " remaining " << endl << endl;
     }
 
-    void attack(Pokemon& otherPokemon)
-    {//Checks to make sure the pokemon isn't knocked out
-        if (knockedOut)
+    //attack the other pokemon in the battle
+    void attack(Pokemon& otherPokemon) //important that this is passed by reference
+    {
+        if (knockedOut)//Checks to make sure the pokemon isn't knocked out
         {
             cout << name << " can't attack becuase it is knocked out " << endl;
             return;
-        }        
-        cout << name << "'s Moves:" << endl;
+        }
+        cout << name << "'s Moves:" << endl; //list each move for the pokemon
         for (int i = 0; i < NUMBER_OF_MOVES; i++)
         {
-            cout << i + 1 << ": " << moves[i].getName() <<" "<< moves[i].getPPremainng() << endl;
+            cout << i + 1 << ": " << moves[i].getName() << " " << moves[i].getPPremainng() << endl;
         }
-        
-        int moveChoice=0;
-        while (moveChoice < 1 ||moveChoice >4) //get the user to select a valid move
+
+        int moveChoice = 0;
+        while (moveChoice < 1 || moveChoice >4) //get the user to select a valid move
         {
             cout << "Which move will you use?" << endl;
             cin >> moveChoice;
         }
-        int damage = moves[moveChoice - 1].useMove(); //user the move and return the damagevalue
+        int damage = moves[moveChoice - 1].useMove(); //use the move and return the damage value
         cout << name << " attacked " << otherPokemon.name << " with " << moves[moveChoice - 1].getName() << " it did " << damage << " damage " << endl;
         if ((moves[moveChoice - 1].getType() == Type::Fire && otherPokemon.type == Type::Water) || (moves[moveChoice - 1].getType() == Type::Water && otherPokemon.type == Type::Grass) || (moves[moveChoice - 1].getType() == Type::Grass && otherPokemon.type == Type::Fire))
         {//damage dealt is a random number between 1 and the level
@@ -189,17 +188,17 @@ public:
             cout << "Its not very effective." << endl;
             otherPokemon.loseHealth(damage);
         }//f the pokemon attacking has neither advantage or disadvantage then there is no modifier
-        else if (moves[moveChoice - 1].getType() == otherPokemon.type || moves[moveChoice - 1].getType()==Type::Normal) //in this example, normal has no effect on damage increase/ decrase
+        else if (moves[moveChoice - 1].getType() == otherPokemon.type || moves[moveChoice - 1].getType() == Type::Normal) //in this example, normal has no effect on damage increase/ decrase
         {//damage dealt is a random number between 1 and the level
             otherPokemon.loseHealth(damage);
         }//If the pokemon attacking has advantage, then it deals double damage
         else if ((moves[moveChoice - 1].getType() == Type::Fire && otherPokemon.type == Type::Grass) || (moves[moveChoice - 1].getType() == Type::Water && otherPokemon.type == Type::Fire) || (moves[moveChoice - 1].getType() == Type::Grass && otherPokemon.type == Type::Water))
         {//damage dealt is a random number between 1 and the level
-            damage  *= 2; //times 2 for strong type           
+            damage *= 2; //times 2 for strong type           
             cout << "Its super effective." << endl;
             otherPokemon.loseHealth(damage);
         }
-        cout << endl;   
+        cout << endl;
     }
     string getName() //return the pokemons name
     {
@@ -215,16 +214,16 @@ class Trainer
 private:
     //A trainer has a one pokemon, a number of potions and a name. When the trainer gets created, they are assigned a pokemon
     Pokemon pokemon[NUMBER_POKEMON]; // a trainer can have siz pokemon
-    string name;
-    int numOfPotions;
-    int currentPokemon;
+    string name; //the trainers name, purely for display purposes
+    int numOfPotions; //the number of potions and trainer hyas
+    int currentPokemon; //this is the value that indicates the current pokemon the trainer is using from the array.
 
 public:
     Trainer(Pokemon p[NUMBER_POKEMON], string n, int pot)
     {
         for (int i = 0; i < NUMBER_POKEMON; i++)
         {
-            pokemon[i]=p[i];
+            pokemon[i] = p[i];
         }
         name = n;
         numOfPotions = pot;
@@ -256,9 +255,9 @@ public:
     {//attack the other trainers pokemon;
         pokemon[currentPokemon].attack(otherTrainer.getCurrentPokemon());
     }
-    Pokemon& getCurrentPokemon() //return the pokemon object
+    Pokemon& getCurrentPokemon() //return the pokemon object as a reference
     {
-        return pokemon[currentPokemon];
+        return pokemon[currentPokemon]; //get the current pokemon from the array of pokemon
     }
     string getName() //return the trainers name
     {
@@ -268,7 +267,7 @@ public:
     {
         return numOfPotions;
     }
-    void switchPokemon()
+    void switchPokemon() //updates the currentPokemon value so that the trainer can switch pokemon
     {
         bool invalidChoice = true; //create a loop to make sure the user picks a correct input
         while (invalidChoice)
@@ -295,9 +294,9 @@ public:
                 cout << "You have switch to : " << pokemon[currentPokemon].getName() << endl; //if it is a valid choice, then inform them they have switched, and stop the loop
                 invalidChoice = false;
             }
-            
+
         }
-        
+
     }
 
     bool areAllPokemonKnockedOut() //check if all pokemon are knocked out
@@ -311,7 +310,7 @@ public:
                 {
                     allKnockedOut = false;
                 }
-            }            
+            }
         }
         return allKnockedOut;
     }
@@ -347,7 +346,7 @@ void getBattleAction(Trainer& trainer1, Trainer& trainer2)
 int main()
 {//Three objects that are of Pokemon type. Charmander is a fire type, Squirtle is a Water type, and Bulbasaur is a Grass type.
     //create some move objects
-    Move tackle("Tackle",10,30,Type::Normal);
+    Move tackle("Tackle", 10, 30, Type::Normal);
     Move scratch("Scratch", 12, 30, Type::Normal);
 
     Move ember("Ember", 20, 20, Type::Fire);
@@ -368,7 +367,7 @@ int main()
     Move bulbasaursMoves[NUMBER_OF_MOVES] = { tackle,scratch,vineWhip,razorLeaf };
     Move gyradosMoves[NUMBER_OF_MOVES] = { tackle, bite, hydroPump,hyperBeam };
     //create pokemon
-    Pokemon charmander("Charmander", 10, 50, Type::Fire,charmandersMoves ); //constructur is the name, the level, the health and the type, and the move set
+    Pokemon charmander("Charmander", 10, 50, Type::Fire, charmandersMoves); //constructur is the name, the level, the health and the type, and the move set
     Pokemon Squirtle("Squirtle", 12, 60, Type::Water, squirtlesMoves);
     Pokemon Bulbasaur("Bulbasaur", 8, 40, Type::Grass, bulbasaursMoves);
     Pokemon Gyrados("Gyrados", 20, 100, Type::Water, gyradosMoves);

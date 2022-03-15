@@ -5,7 +5,11 @@ using namespace std;
 const int NUMBER_POKEMON = 6;
 const int NUMBER_OF_MOVES = 4;
 enum class Type { Fire, Water, Grass, Normal }; // Use enum for types. This makes the code easier, and we don't need string comparissons.
-class Move //Move class: responsible for a Move that a pokemon can use in battle
+/**
+*Move class : represents a Move that a pokemon can use in battle.
+*Holds the move name, the attack value,, the total powerpoints and the current poiwer points, and also the moves type
+*/
+class Move
 {
 private:
     string name; //the name of the move
@@ -55,6 +59,10 @@ public:
     }
 
 };
+/**
+*Pokemon class : represent a pokemon that a trainer can control
+*Holds the pokemons name, the level, the health, the maximum health, the Type, a flag to say if the pokemon is knocked out and an array of moves
+*/
 class Pokemon
 {
 private:
@@ -209,6 +217,10 @@ public:
         return knockedOut;
     }
 };
+/**
+*Trainer class, represents a trainer that commands a pokemon in a battle. The trainer holds a number of pokemon in an array, they also have a name
+* the number of potions availale to use, and the index of the current pokemon in battle
+*/
 class Trainer
 {
 private:
@@ -343,6 +355,9 @@ void getBattleAction(Trainer& trainer1, Trainer& trainer2)
     }
 }
 
+/**
+*main() function, creates moves trainer and some pokemon for use in the program
+*/
 int main()
 {//Three objects that are of Pokemon type. Charmander is a fire type, Squirtle is a Water type, and Bulbasaur is a Grass type.
     //create some move objects

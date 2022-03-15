@@ -1,0 +1,5 @@
+<map id="Trainer" name="Trainer">
+<area shape="rect" id="node1" title=" " alt="" coords="5,652,287,905"/>
+<area shape="rect" id="node2" href="$class_pokemon.html" title=" " alt="" coords="15,277,277,589"/>
+<area shape="rect" id="node3" href="$class_move.html" title=" " alt="" coords="27,5,265,215"/>
+</map>

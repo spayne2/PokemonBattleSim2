@@ -1,0 +1,12 @@
+<map id="Trainer::attackOtherTrainersPokemon" name="Trainer::attackOtherTrainersPokemon">
+<area shape="rect" id="node1" title=" " alt="" coords="5,157,244,184"/>
+<area shape="rect" id="node2" href="$class_pokemon.html#ae9a05c1f4798f773865b4c0131139685" title=" " alt="" coords="323,132,445,159"/>
+<area shape="rect" id="node10" href="$class_trainer.html#af006a1ebec958f59dc141d5d5e76aea5" title=" " alt="" coords="292,183,476,209"/>
+<area shape="rect" id="node3" href="$class_move.html#a8c538e7d29544690a4bc30a5fa550665" title=" " alt="" coords="543,5,655,32"/>
+<area shape="rect" id="node4" href="$class_move.html#a4fe9e16b63c66bb5ce62a5ef9e9b5de6" title=" " alt="" coords="524,56,673,83"/>
+<area shape="rect" id="node5" href="$class_move.html#a65c15c3776dd561f55d8e21de9840a84" title=" " alt="" coords="545,107,652,133"/>
+<area shape="rect" id="node6" href="$class_pokemon.html#a3283976f82a48c37434a64118679e62c" title=" " alt="" coords="533,157,664,184"/>
+<area shape="rect" id="node7" href="$class_pokemon.html#a662222f38506e78394aea90afa69a2d4" title=" " alt="" coords="525,208,672,235"/>
+<area shape="rect" id="node9" href="$class_move.html#a495d00ba8d463dd1287cdb38683689ca" title=" " alt="" coords="543,259,654,285"/>
+<area shape="rect" id="node8" href="$class_pokemon.html#a3e1ca2556c61a4d65e82d35b59f50012" title=" " alt="" coords="721,208,863,235"/>
+</map>

@@ -1,0 +1,5 @@
+<map id="Trainer::switchPokemon" name="Trainer::switchPokemon">
+<area shape="rect" id="node1" title=" " alt="" coords="5,31,167,57"/>
+<area shape="rect" id="node2" href="$class_pokemon.html#ac7ad3344754620e3387bff30a73882b3" title=" " alt="" coords="215,5,352,32"/>
+<area shape="rect" id="node3" href="$class_trainer.html#accaae99bb279687b74d24f93d95f72bf" title=" " alt="" coords="223,56,344,83"/>
+</map>

@@ -1,0 +1,20 @@
+<map id="getBattleAction" name="getBattleAction">
+<area shape="rect" id="node1" title=" " alt="" coords="5,271,116,297"/>
+<area shape="rect" id="node2" href="$class_trainer.html#a9284ee6f0b7b63fb8670eb84234cf252" title=" " alt="" coords="164,169,403,196"/>
+<area shape="rect" id="node12" href="$class_trainer.html#accaae99bb279687b74d24f93d95f72bf" title=" " alt="" coords="482,245,603,272"/>
+<area shape="rect" id="node13" href="$class_trainer.html#a5f8a229c2ef13afbd3ac13ee5f6459e2" title=" " alt="" coords="198,271,369,297"/>
+<area shape="rect" id="node14" href="$class_trainer.html#a130712b43d00b12c82888730dd88ab40" title=" " alt="" coords="203,321,364,348"/>
+<area shape="rect" id="node16" href="$class_trainer.html#a50693f79e11d61d914e7e2f4c4f0a871" title=" " alt="" coords="220,372,347,399"/>
+<area shape="rect" id="node3" href="$class_pokemon.html#ae9a05c1f4798f773865b4c0131139685" title=" " alt="" coords="482,132,603,159"/>
+<area shape="rect" id="node11" href="$class_trainer.html#af006a1ebec958f59dc141d5d5e76aea5" title=" " alt="" coords="451,183,635,209"/>
+<area shape="rect" id="node4" href="$class_move.html#a8c538e7d29544690a4bc30a5fa550665" title=" " alt="" coords="701,5,813,32"/>
+<area shape="rect" id="node5" href="$class_move.html#a4fe9e16b63c66bb5ce62a5ef9e9b5de6" title=" " alt="" coords="683,56,832,83"/>
+<area shape="rect" id="node6" href="$class_move.html#a65c15c3776dd561f55d8e21de9840a84" title=" " alt="" coords="704,107,811,133"/>
+<area shape="rect" id="node7" href="$class_pokemon.html#a3283976f82a48c37434a64118679e62c" title=" " alt="" coords="692,157,823,184"/>
+<area shape="rect" id="node8" href="$class_pokemon.html#a662222f38506e78394aea90afa69a2d4" title=" " alt="" coords="684,208,831,235"/>
+<area shape="rect" id="node10" href="$class_move.html#a495d00ba8d463dd1287cdb38683689ca" title=" " alt="" coords="702,259,813,285"/>
+<area shape="rect" id="node9" href="$class_pokemon.html#a3e1ca2556c61a4d65e82d35b59f50012" title=" " alt="" coords="880,208,1021,235"/>
+<area shape="rect" id="node15" href="$class_pokemon.html#ac7ad3344754620e3387bff30a73882b3" title=" " alt="" coords="474,321,611,348"/>
+<area shape="rect" id="node17" href="$class_pokemon.html#aa262143df10f2007c2f7496050116b30" title=" " alt="" coords="469,372,616,399"/>
+<area shape="rect" id="node18" href="$class_pokemon.html#a3774d7b9d06963d436929c3413655743" title=" " alt="" coords="699,372,815,399"/>
+</map>
